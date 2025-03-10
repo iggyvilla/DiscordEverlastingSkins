@@ -1,1 +1,1 @@
-# DiscordIntegration + EverlastingSkins
+# DiscordIntegration + EverlastingSkins API
