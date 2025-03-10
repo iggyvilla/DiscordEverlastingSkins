@@ -14,10 +14,6 @@ from io import BytesIO
 
 app = Flask(__name__)
 
-# For local dev testing environment, use this path instead
-# EVERLASTING_SKINS_PATH = "qfs_2/EverlastingSkins"
-EVERLASTING_SKINS_PATH = "../quafuzzii-s2/qfs2_world/EverlastingSkins"
-
 
 class NullNamespace:
     bytes = b''
