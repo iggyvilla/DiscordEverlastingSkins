@@ -83,8 +83,8 @@ def get_skin(name):
     time_since_last_cache = time.time() - cache["usernames"][name]
 
     # Note that here we're caching the *render* of their avatar
-    if time_since_last_cache > (60*5):
-        print("+ been 5 mins since last cache, replacing skin")
+    if time_since_last_cache > (60*10):
+        print("+ been 10 mins since last cache, replacing skin")
 
         # Grab the users UUID from username (needed to get correct EverlastingSkins .json)
         user_uuid = get_uuid_from_name(original_name)
@@ -99,10 +99,10 @@ def get_skin(name):
 
         # Not happy with the speed of SFTP, this file transfer takes ~5 seconds on avg
         with pysftp.Connection(
-                host="skypark.ultraservers.com",
+                host=os.environ['SFTP_HOST'],
                 port=60002,
-                username="s2k8kthj.53b28cbd",
-                password=os.environ['SFTPPW'],
+                username=os.environ['SFTP_USR'],
+                password=os.environ['SFTP_PW'],
                 cnopts=cnopts
         ) as sftp:
             with sftp.cd("qfs4_world/EverlastingSkins"):
