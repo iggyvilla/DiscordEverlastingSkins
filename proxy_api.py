@@ -65,9 +65,6 @@ def get_skin(name):
     original_name = name[:-4]
     name = name.lower()[:-4]
 
-    with open('skins.json', 'r') as f:
-        db = json.load(f)
-
     with open('cache.json', 'r') as f:
         cache = json.load(f)
 
@@ -131,9 +128,6 @@ def get_skin(name):
         # Update cache
         cache["skinRender"][name] = base64.b64encode(resp.content).decode('utf-8')
         cache["usernames"][name] = time.time()
-
-        with open('skins.json', 'w') as f:
-            json.dump(db, f)
 
         with open('cache.json', 'w') as f:
             json.dump(cache, f)
